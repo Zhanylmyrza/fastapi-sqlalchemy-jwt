@@ -3,8 +3,8 @@ from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, HTTPException, Path
 from starlette import status
 from pydantic import BaseModel, Field
-from models import User
-from database import SessionLocal
+from ..models import User
+from ..database import SessionLocal
 from .auth import get_current_user, login_for_access_token
 # import requests
 from passlib.context import CryptContext
@@ -39,8 +39,6 @@ async def get_user(user: user_dependency, db: db_dependency):
       raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,detail='Could not validate user')
       
   return db.query(User).filter(User.id == user.get('id')).first()
-
-  
   
 
 @router.put("/password", status_code=status.HTTP_204_NO_CONTENT)

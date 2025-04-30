@@ -1,10 +1,10 @@
 from datetime import timedelta, datetime, timezone
 from fastapi import APIRouter
 from pydantic import BaseModel
-from models import User
+from ..models import User
 from passlib.context import CryptContext
 from typing import Annotated
-from database import SessionLocal
+from ..database import SessionLocal
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, HTTPException, Path
 from starlette import status
