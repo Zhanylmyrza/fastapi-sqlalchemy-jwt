@@ -14,8 +14,6 @@ class User(Base):
   is_active = Column(Boolean, default=False)
   role = Column(String)
   phone_number = Column(String)
-  # student_cart = Column(String)
-
 
 
 class ToDos(Base):
